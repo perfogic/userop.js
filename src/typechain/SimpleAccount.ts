@@ -646,7 +646,6 @@ export interface SimpleAccount extends BaseContract {
 
     executeBatch(
       dest: string[],
-      value: BigNumberish[],
       func: BytesLike[],
       overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
