@@ -72,7 +72,7 @@ export interface SimpleAccountInterface extends utils.Interface {
     "addDeposit()": FunctionFragment;
     "entryPoint()": FunctionFragment;
     "execute(address,uint256,bytes)": FunctionFragment;
-    "executeBatch(address[],bytes[])": FunctionFragment;
+    "executeBatch(address[],uint256[],bytes[])": FunctionFragment;
     "getDeposit()": FunctionFragment;
     "getNonce()": FunctionFragment;
     "initialize(address)": FunctionFragment;
@@ -125,7 +125,7 @@ export interface SimpleAccountInterface extends utils.Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "executeBatch",
-    values: [string[], BytesLike[]]
+    values: [string[], BigNumberish[], BytesLike[]]
   ): string;
   encodeFunctionData(
     functionFragment: "getDeposit",
@@ -646,6 +646,7 @@ export interface SimpleAccount extends BaseContract {
 
     executeBatch(
       dest: string[],
+      value: BigNumberish[],
       func: BytesLike[],
       overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
