@@ -325,6 +325,7 @@ export interface SimpleAccount extends BaseContract {
 
     executeBatch(
       dest: string[],
+      value: BigNumberish[],
       func: BytesLike[],
       overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
@@ -423,6 +424,7 @@ export interface SimpleAccount extends BaseContract {
 
   executeBatch(
     dest: string[],
+    value: BigNumberish[],
     func: BytesLike[],
     overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
@@ -519,6 +521,7 @@ export interface SimpleAccount extends BaseContract {
 
     executeBatch(
       dest: string[],
+      value: BigNumberish[],
       func: BytesLike[],
       overrides?: CallOverrides
     ): Promise<void>;
@@ -646,6 +649,7 @@ export interface SimpleAccount extends BaseContract {
 
     executeBatch(
       dest: string[],
+      value: BigNumberish[],
       func: BytesLike[],
       overrides?: Overrides & { from?: string }
     ): Promise<BigNumber>;
@@ -745,6 +749,7 @@ export interface SimpleAccount extends BaseContract {
 
     executeBatch(
       dest: string[],
+      value: BigNumberish[],
       func: BytesLike[],
       overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;

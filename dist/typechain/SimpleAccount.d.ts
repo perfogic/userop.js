@@ -45,7 +45,7 @@ export interface SimpleAccountInterface extends utils.Interface {
         "addDeposit()": FunctionFragment;
         "entryPoint()": FunctionFragment;
         "execute(address,uint256,bytes)": FunctionFragment;
-        "executeBatch(address[],bytes[])": FunctionFragment;
+        "executeBatch(address[],uint256[],bytes[])": FunctionFragment;
         "getDeposit()": FunctionFragment;
         "getNonce()": FunctionFragment;
         "initialize(address)": FunctionFragment;
@@ -65,7 +65,7 @@ export interface SimpleAccountInterface extends utils.Interface {
     encodeFunctionData(functionFragment: "addDeposit", values?: undefined): string;
     encodeFunctionData(functionFragment: "entryPoint", values?: undefined): string;
     encodeFunctionData(functionFragment: "execute", values: [string, BigNumberish, BytesLike]): string;
-    encodeFunctionData(functionFragment: "executeBatch", values: [string[], BytesLike[]]): string;
+    encodeFunctionData(functionFragment: "executeBatch", values: [string[], BigNumberish[], BytesLike[]]): string;
     encodeFunctionData(functionFragment: "getDeposit", values?: undefined): string;
     encodeFunctionData(functionFragment: "getNonce", values?: undefined): string;
     encodeFunctionData(functionFragment: "initialize", values: [string]): string;
@@ -168,7 +168,7 @@ export interface SimpleAccount extends BaseContract {
         execute(dest: string, value: BigNumberish, func: BytesLike, overrides?: Overrides & {
             from?: string;
         }): Promise<ContractTransaction>;
-        executeBatch(dest: string[], func: BytesLike[], overrides?: Overrides & {
+        executeBatch(dest: string[], value: BigNumberish[], func: BytesLike[], overrides?: Overrides & {
             from?: string;
         }): Promise<ContractTransaction>;
         getDeposit(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -203,7 +203,7 @@ export interface SimpleAccount extends BaseContract {
     execute(dest: string, value: BigNumberish, func: BytesLike, overrides?: Overrides & {
         from?: string;
     }): Promise<ContractTransaction>;
-    executeBatch(dest: string[], func: BytesLike[], overrides?: Overrides & {
+    executeBatch(dest: string[], value: BigNumberish[], func: BytesLike[], overrides?: Overrides & {
         from?: string;
     }): Promise<ContractTransaction>;
     getDeposit(overrides?: CallOverrides): Promise<BigNumber>;
@@ -234,7 +234,7 @@ export interface SimpleAccount extends BaseContract {
         addDeposit(overrides?: CallOverrides): Promise<void>;
         entryPoint(overrides?: CallOverrides): Promise<string>;
         execute(dest: string, value: BigNumberish, func: BytesLike, overrides?: CallOverrides): Promise<void>;
-        executeBatch(dest: string[], func: BytesLike[], overrides?: CallOverrides): Promise<void>;
+        executeBatch(dest: string[], value: BigNumberish[], func: BytesLike[], overrides?: CallOverrides): Promise<void>;
         getDeposit(overrides?: CallOverrides): Promise<BigNumber>;
         getNonce(overrides?: CallOverrides): Promise<BigNumber>;
         initialize(anOwner: string, overrides?: CallOverrides): Promise<void>;
@@ -270,7 +270,7 @@ export interface SimpleAccount extends BaseContract {
         execute(dest: string, value: BigNumberish, func: BytesLike, overrides?: Overrides & {
             from?: string;
         }): Promise<BigNumber>;
-        executeBatch(dest: string[], func: BytesLike[], overrides?: Overrides & {
+        executeBatch(dest: string[], value: BigNumberish[], func: BytesLike[], overrides?: Overrides & {
             from?: string;
         }): Promise<BigNumber>;
         getDeposit(overrides?: CallOverrides): Promise<BigNumber>;
@@ -306,7 +306,7 @@ export interface SimpleAccount extends BaseContract {
         execute(dest: string, value: BigNumberish, func: BytesLike, overrides?: Overrides & {
             from?: string;
         }): Promise<PopulatedTransaction>;
-        executeBatch(dest: string[], func: BytesLike[], overrides?: Overrides & {
+        executeBatch(dest: string[], value: BigNumberish[], func: BytesLike[], overrides?: Overrides & {
             from?: string;
         }): Promise<PopulatedTransaction>;
         getDeposit(overrides?: CallOverrides): Promise<PopulatedTransaction>;

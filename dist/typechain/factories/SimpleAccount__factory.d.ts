@@ -110,6 +110,10 @@ export declare class SimpleAccount__factory {
             readonly name: "dest";
             readonly type: "address[]";
         }, {
+            readonly internalType: "uint256[]";
+            readonly name: "value";
+            readonly type: "uint256[]";
+        }, {
             readonly internalType: "bytes[]";
             readonly name: "func";
             readonly type: "bytes[]";
